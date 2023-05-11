@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Interactive Card</title>
+    <link rel="stylesheet" href="css/card.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-section_card">
+      <div class="atm-cards">
+        <div class="first-card">
+          <img class="front-card" src="./img/bg-card-front.png" alt="front-card">
+          <div class="card-holder">
+            <img class="card-logo" src="./img/card-logo.svg" alt="card-icon">
+            <h1 class="atm-number" id="number"></h1>
+            <div class="card-info">
+              <span class="name" id="name"></span>
+              <div class="date">
+                <span class="month" id="month"></span>
+                /
+                <span class="year" id="year"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="second-card">
+          <img src="./img/bg-card-back.png" alt="back-card">
+          <span class="cvv" id="cvv"></span>
+        </div>
+      </div>
+    </div>
+    <div class="right-section_card">
+      <form id="form">
+        <div class="name-input">
+          <label for="card_name">Cardholder Name</label>
+          <input
+            oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
+            type="text"
+            minlength="9"
+            maxlength="18"
+            type="text"
+            placeholder="e.g. Jane Appleseed"
+            id="card_Name"
+            required
+          />
+        </div>
+        <div class="number-input">
+          <label for="card_number">Card Number</label>
+          <input
+            oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
+            type="text"
+            minlength="16"
+            maxlength="16"
+            placeholder="e.g. 1234 5678 9123 0000"
+            id="card_Number"
+            onkeyup="nextInput(this, 'card_Month')"
+            required
+          />
+        </div>
+        <div class="card-information">
+          <div class="card-date">
+            <label for="card_exp">Exp. Date (MM/YY)</label>
+            <div class="two-input">
+              <div>
+                <input
+                  oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
+                  type="number"
+                  maxlength="2"
+                  placeholder="MM"
+                  id="card_Month"
+                  onkeyup="nextInput(this, 'card_Year')"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
+                  type="number"
+                  minlength="2"
+                  maxlength="2"
+                  type="text"
+                  placeholder="YY"
+                  onkeyup="nextInput(this, 'card_Cvv')"
+                  id="card_Year"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="cvv-input">
+            <label for="card_cvv">CVC</label>
+            <input
+              oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
+              type="number"
+              minlength="3"
+              maxlength="3"
+              type="text"
+              placeholder="e.g. 123"
+              id="card_Cvv"
+              required
+            />
+          </div>
+        </div>
+        <button type="submit" id="submit_bnt">Confirm</button>
+      </form>
+      <div class="thank hidden">
+        <img src="./img/icon-complete.svg" alt="completed">
+        <h1>Thank you!</h1>
+        <p>We've added your card details</p>
+        <button onclick="restForm()">Continue</button>
+      </div>
+    </div>
+    <!-- <div class="attribution">
+     <p> &copy;.copyright 2023 coded by Bozz</p>.
+    </div> -->
+  </div>
+  <script src="js/index.js"></script>
+</body>
+</html>

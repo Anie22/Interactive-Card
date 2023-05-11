@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+:root{
+    --Black: hsl(0, 1%, 30%);
+    --DarkPurple: hsl(278, 94%, 30%);
+    --Red: hsl(0, 100%, 66%);
+    --White: hsl(0, 12%, 89%);
+    --Lightgrayishviolet: hsl(270, 3%, 87%);
+    --Darkgrayishviolet: hsl(279, 6%, 55%);
+    --Verydarkviolet: hsl(278, 68%, 11%);
+    --LightPurple: hsl(249, 99%, 64%);
+}
+
+body{
+    min-height: 100vh;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.error{
+    border: 2px solid var(--Red);
+}
+
+.error-message,
+.error-message2{
+    gap: 0;
+}
+
+.error-message::after{
+    content: "Can't be blank";
+    color: var(--Red);
+    margin-top: .2rem;
+}
+
+.error-message2::after{
+    content: "Wrong format, Numbers only";
+    color: var(--Red);
+    margin-top: .2rem;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.left-section_card{
+    min-height: 100vh;
+    width: 40%;
+    background-image: url(../img/bg-main-desktop.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.atm-cards{
+    position: absolute;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.first-card{
+    position: relative;
+    transform: translateX(-100px);
+}
+
+.front-card{
+    width: 94%;
+    height: 50%;
+}
+
+.card-logo{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.atm-number{
+    position: absolute;
+    color: var(--White);
+    bottom: 5rem;
+    left: 1rem;
+    letter-spacing: 2px;
+}
+
+.card-info{
+    position: absolute;
+    bottom: 2rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--White);
+}
+
+.date{
+    margin-right: 2rem;
+}
+
+.second-card{
+    position: relative;
+}
+
+.cvv{
+    position: absolute;
+    right: 3.5rem;
+    top: 7rem;
+    color: var(--Lightgrayishviolet);
+}
+
+.right-section_card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.right-section_card form{
+    display: grid;
+    gap: 1rem;
+    width: 350px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(4,1fr);
+}
+
+label{
+    color: var(--Verydarkviolet);
+    margin-bottom: .3rem;
+    text-transform: uppercase;
+}
+
+input{
+    padding: .5rem;
+    font-size: 18px;
+    border: 1px solid var(--Darkgrayishviolet);
+    border-radius: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input::placeholder{
+    font-family: inherit;
+    color: var(--Darkgrayishviolet);
+}
+
+input:focus{
+    outline-color: hsl(249, 99%, 64%);
+}
+
+.name-input{
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 span;
+}
+
+.number-input{
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 span;
+}
+
+.cvv-input{
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 span;
+}
+
+.card-information{
+    display: flex;
+    grid-column: 2 span;
+    grid-template-columns: 1rem;
+}
+
+.card-date .two-input{
+    display: flex;
+}
+
+.two-input div{
+    flex-direction: column;
+}
+
+.card-date div input{
+    width: 70px;
+    margin-inline: .5rem;
+    margin-left: 0;
+}
+
+#card_Cvv{
+    width: 100%;
+}
+
+form button{
+    grid-column: 2 span;
+    font-size: 18px;
+    height: 50px;
+    color: var(--White);
+    border-radius: 6px;
+    background-color: var(--Verydarkviolet);
+    cursor: pointer;
+}
+
+.thank{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.thank h1{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.thank p{
+    font-size: 18px;
+    color: var(--Darkgrayishviolet);
+}
+
+.thank button{
+    color: var(--White);
+    width: 100%;
+    border-radius: 6px;
+    padding: 1rem;
+    font-size: 18px;
+    background-color: var(--Verydarkviolet);
+    cursor: pointer;
+}
+
+.attribution {
+    font-size: 20px;
+    text-align: center;
+    position: absolute;
+    transform: translate(280%, 600%);
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+@media screen and (max-width: 1024px) {
+    .first-card, .first-card img, .second-card, .second-card img{
+      width: 318px;
+    }
+
+    .card-holder .card-logo{
+        width: 50px;
+    }
+
+    .atm-number{
+        bottom: 4rem;
+        font-size: 1.6rem;
+    }
+
+    .date{
+        margin-right: 0;
+    }
+
+    .cvv{
+        top: 42%;
+        right: 12%;
+    }
+
+    .attribution {
+        transform: translate(190%, 470%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        flex-direction: column;
+    }
+
+    .first-card, .first-card img, .second-card, .second-card img{
+      width: 316px;
+    }
+
+    .left-section_card{
+        width: 100%;
+        min-height: 52vh;
+        background-image: url(../img/bg-main-mobile.png);
+    }
+
+    .atm-cards{
+        display: flex;
+        flex-direction: column-reverse;
+        left: 60%;
+        right: 60%;
+        gap: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .second-card{
+        transform: translateY(96px);
+    }
+
+    .first-card{
+        z-index: 100;
+    }
+
+    .right-section_card{
+        margin-top: 8rem;
+    }
+
+    .right-section_card form{
+        gap: 25px;
+    }
+
+    form{
+        margin-left: 12px;
+    }
+
+    /* .date{
+        margin-left: 6.2rem;
+    } */
+
+    .attribution {
+        transform: translate(-0%, 1300%);
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .first-card, .first-card img, .second-card, .second-card img{
+      width: 303px;
+    }
+
+    .left-section_card{
+        min-height: 43vh;
+    }
+
+    .first-card{
+        margin-left: 82px;
+        top: 13px;
+    }
+
+    form{
+        margin-left: 0px;
+        padding: 0px 12px;
+    }
+
+    .date{
+        margin-right: 0;
+    }
+
+    .card-info{
+        bottom: 1.2rem;
+    }
+
+    .atm-number{
+        bottom: 3.4rem;
+        font-size: 1.5rem;
+    }
+
+    .attribution{
+        transform: translateY(1210%);
+    }
+
+    .thank{
+        padding: 0px 15px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .first-card, .first-card img, .second-card, .second-card img{
+      width: 271px;
+    }
+
+    .left-section_card{
+        min-height: 43vh;
+    }
+
+    .first-card{
+        margin-left: 82px;
+        top: 13px;
+    }
+
+    form{
+        margin-left: 0px;
+        padding: 0px 12px;
+    }
+
+    .date{
+        margin-right: 0;
+    }
+
+    .card-info{
+        bottom: 1.2rem;
+    }
+
+    .atm-number{
+        bottom: 3rem;
+        font-size: 1.3rem;
+    }
+
+    .attribution{
+        transform: translateY(1210%);
+    }
+
+    .thank{
+        padding: 0px 15px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .first-card, .first-card img, .second-card, .second-card img{
+      width: 284px;
+    }
+
+    .left-section_card{
+        min-height: 43vh;
+    }
+
+    .first-card{
+        margin-left: 115px;
+        top: 30px;
+    }
+
+    .second-card{
+        margin-left: -35px;
+    }
+
+    form{
+        margin-left: 0px;
+        padding: 0px 12px;
+    }
+
+    .date{
+        margin-right: 0;
+    }
+
+    .card-info{
+        bottom: 1.2rem;
+    }
+
+    .atm-number{
+        bottom: 3.4rem;
+        font-size: 1.2rem;
+    }
+}
