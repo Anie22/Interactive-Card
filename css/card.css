@@ -391,7 +391,7 @@ form button{
 
 @media screen and (max-width: 375px) {
     .first-card, .first-card img, .second-card, .second-card img{
-      width: 271px;
+      width: 287px;
     }
 
     .left-section_card{
@@ -418,7 +418,7 @@ form button{
 
     .atm-number{
         bottom: 3rem;
-        font-size: 21px;
+        font-size: 20px;
     }
 
     .attribution{
