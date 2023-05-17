@@ -1,3 +1,10 @@
+const message1 = document.querySelector('.error-message')
+const message2 = document.querySelector('.error-message2')
+const message3 = document.querySelector('.error-message3')
+const message4 = document.querySelector('.error-message4')
+const message5 = document.querySelector('.error-message5')
+const message6 = document.querySelector('.error-message6')
+
 const card_name = 'Jane Appleseed'
 document.querySelector('.name').innerText = card_name
 
@@ -45,10 +52,10 @@ nameInput.addEventListener("input", () => {
    // check if the form input is empty
     if(!nameInput.value){
         nameInput.classList.add('error')
-        nameInput.parentElement.classList.add('error-message')
+        message1.classList.remove('hidden')
     }else{
         nameInput.classList.remove('error')
-        nameInput.parentElement.classList.remove('error-message')
+        message1.classList.add('hidden')
     }
 });
 
@@ -63,37 +70,43 @@ nameInput.addEventListener("paste", (e) => {
     e.preventDefault();
 });
 
-// check if the form input contains a letter and not a digit and display the error message automatically
+// check if the form input contains a letter and not a digit and is empty then it displays the error message automatically
 numberInput.addEventListener("input", () => {
     const inputVal = numberInput.value
 
     if (onlyNumber(inputVal)) {
         numberInput.classList.remove('error')
-        numberInput.parentElement.classList.remove('error-message2')
+        message3.classList.add('hidden')
     } else if (!onlyNumber(inputVal)) {
         numberInput.classList.add('error')
-        numberInput.parentElement.classList.add('error-message2')
+        message3.classList.remove('hidden')
     }
-});
 
-numberInput.addEventListener("input", () => {
-    const inputVal = numberInput.value
-
-    if (onlyNumber(inputVal)) {
+    if (!numberInput.value) {
+        numberInput.classList.add('error')
+        message2.classList.remove('hidden')
+        message3.classList.add('hidden')
+    } else if (numberInput.value) {
         numberInput.classList.remove('error')
-        numberInput.parentElement.classList.remove('error-message2')
-    } else if (!onlyNumber(inputVal)) {
-        numberInput.classList.add('error')
-        numberInput.parentElement.classList.add('error-message2')
+        message2.classList.add('hidden')
     }
 });
+
 
 monthInput.addEventListener("input", () => {
     const maxLength = monthInput.maxLength;
     const inpValue = monthInput.value;
 
-    if (inpValue.length < maxLength) {
-        const paddedValue = inpValue.padStart(maxLength, "0");
+    if (!monthInput.value) {
+        monthInput.classList.add('error')
+        message4.classList.remove('hidden')
+    } else if (monthInput.value) {
+        monthInput.classList.remove('error')
+        message4.classList.add('hidden')
+    }
+
+    if (inpValue.length < 2) {
+        const paddedValue = inpValue.concact("0");
         monthInput.value = paddedValue
     } else if (inpValue.length === maxLength && inpValue.charAt(0) === "0") {
         monthInput.value = inpValue.substring(1);
@@ -114,20 +127,18 @@ yearInput.addEventListener("input", () => {
             yearInput.value = '';
         }
     }
-
 });
 
-cvvInput.addEventListener("input", () => {
-    const maxLength = cvvInput.maxLength;
-    const inpValue = cvvInput.value;
+// cvvInput.addEventListener("input", () => {
+//     const CVV = cvvInput.value;
+//     const len = CVV.length;
 
-    if (inpValue.length < maxLength) {
-        const paddedValue = inpValue.padStart(maxLength, "0");
-        cvvInput.value = paddedValue
-    } else if (inpValue.length === maxLength && inpValue.charAt(0) === "0") {
-        cvvInput.value = inpValue.substring(1);
-    }
-});
+//     if (len < 3) {
+//         cvvInput.value = "0" + CVV
+//     } else if (len === 3 && inpValue.charAt(0) === "0") {
+//         cvvInput.value = inpValue.substring(1);
+//     }
+// });
 
 submitBtn.addEventListener("click", handleSubmit);
 
@@ -155,17 +166,35 @@ function setcardName(e) {
 
 // Get the value from the form input into the card
 function setcardMonth(e) {
-    cardMonth.innerText = e.target.value;
+    var month = e.target.value;
+    var len = month.length;
+    if(len == 0){
+        cardMonth.innerText = card_month;
+    }else{
+        cardMonth.innerText = month;
+    }
 }
 
 // Get the value from the form input into the card
 function setcardYear(e) {
-    cardYear.innerText = e.target.value;
+    var year = e.target.value;
+    var len = year.length;
+    if(len == 0){
+        cardYear.innerText = card_year;
+    }else{
+        cardYear.innerText = year;
+    }
 }
 
 // Get the value from the form input into the card
 function setcardCvv(e) {
-    cardCvv.innerText = e.target.value;
+    var cvv = e.target.value;
+    var len = cvv.length;
+    if(len == 0){
+        cardCvv.innerText = card_cvv;
+    }else{
+        cardCvv.innerText = cvv;
+    }
 }
 
 // For spacing the card number in group of four
@@ -183,40 +212,39 @@ function onlyNumber(inp){
 function handleSubmit(e) {
     e.preventDefault();
 
+     // check if the form input is empty
+    if(!nameInput.value){
+        nameInput.classList.add('error')
+    }else{
+        nameInput.classList.remove('error')
+    }
+
     // check if the form input is empty
     if(!numberInput.value){
         numberInput.classList.add('error')
-        numberInput.parentElement.classList.add('error-message')
     }else{
         numberInput.classList.remove('error')
-        numberInput.parentElement.classList.remove('error-message')
     }
 
     // check if the form input is empty
     if(!yearInput.value){
         yearInput.classList.add('error')
-        yearInput.parentElement.classList.add('error-message')
     }else{
         yearInput.classList.remove('error')
-        yearInput.parentElement.classList.remove('error-message')
     }
 
     // check if the form input is empty
     if(!monthInput.value){
         monthInput.classList.add('error')
-        monthInput.parentElement.classList.add('error-message')
     }else{
         monthInput.classList.remove('error')
-        monthInput.parentElement.classList.remove('error-message')
     }
 
     // check if the form input is empty
     if(!cvvInput.value){
         cvvInput.classList.add('error')
-        cvvInput.parentElement.classList.add('error-message')
     }else{
         cvvInput.classList.remove('error')
-        cvvInput.parentElement.classList.remove('error-message')
     }
 
     // check if the form input is complete befor submitting

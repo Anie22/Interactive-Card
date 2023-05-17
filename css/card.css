@@ -31,20 +31,13 @@ body{
 }
 
 .error-message,
-.error-message2{
-    gap: 0;
-}
-
-.error-message::after{
-    content: "Can't be blank";
+.error-message2,
+.error-message3,
+.error-message4,
+.error-message5,
+.error-message6{
     color: var(--Red);
-    margin-top: .2rem;
-}
-
-.error-message2::after{
-    content: "Wrong format, Numbers only";
-    color: var(--Red);
-    margin-top: .2rem;
+    margin-top: 5px;
 }
 
 .container{
@@ -96,6 +89,10 @@ body{
     letter-spacing: 2px;
 }
 
+.name{
+    text-transform: capitalize;
+}
+
 .card-info{
     position: absolute;
     bottom: 2rem;
@@ -139,7 +136,7 @@ body{
 
 label{
     color: var(--Verydarkviolet);
-    margin-bottom: .3rem;
+    margin-bottom: -1rem;
     text-transform: uppercase;
 }
 
@@ -169,6 +166,14 @@ input:focus{
     display: flex;
     flex-direction: column;
     grid-column: 2 span;
+}
+
+.card-name::placeholder{
+    text-transform: none;
+}
+
+.card-name{
+    text-transform: capitalize;
 }
 
 .number-input{
@@ -335,7 +340,7 @@ form button{
     } */
 
     .attribution {
-        transform: translate(-0%, 1300%);
+        transform: translate(-0%, 1550%);
     }
 }
 
@@ -378,6 +383,10 @@ form button{
     .thank{
         padding: 0px 15px;
     }
+
+    .attribution {
+        transform: translate(-0%, 1500%);
+    }
 }
 
 @media screen and (max-width: 375px) {
@@ -386,7 +395,7 @@ form button{
     }
 
     .left-section_card{
-        min-height: 43vh;
+        height: 30vh;
     }
 
     .first-card{
@@ -409,7 +418,7 @@ form button{
 
     .atm-number{
         bottom: 3rem;
-        font-size: 1.3rem;
+        font-size: 21px;
     }
 
     .attribution{
@@ -419,6 +428,10 @@ form button{
     .thank{
         padding: 0px 15px;
     }
+
+    .attribution {
+        transform: translate(-0%, 1530%);
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -427,7 +440,7 @@ form button{
     }
 
     .left-section_card{
-        min-height: 43vh;
+        height: 30vh;
     }
 
     .first-card{
@@ -454,6 +467,10 @@ form button{
 
     .atm-number{
         bottom: 3.4rem;
-        font-size: 1.2rem;
+        font-size: 20px;
+    }
+
+    .attribution {
+        transform: translate(-0%, 1500%);
     }
 }

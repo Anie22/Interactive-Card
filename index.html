@@ -36,7 +36,7 @@
     <div class="right-section_card">
       <form id="form">
         <div class="name-input">
-          <label for="card_name">Cardholder Name</label>
+          <label for="card_name">Cardholder Name</label><br>
           <input
             oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
             type="text"
@@ -45,11 +45,13 @@
             type="text"
             placeholder="e.g. Jane Appleseed"
             id="card_Name"
+            class="card-name"
             required
           />
+          <div class="error-message hidden">Can't be blank</div>
         </div>
         <div class="number-input">
-          <label for="card_number">Card Number</label>
+          <label for="card_number">Card Number</label><br>
           <input
             oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
             type="text"
@@ -60,10 +62,12 @@
             onkeyup="nextInput(this, 'card_Month')"
             required
           />
+          <div class="error-message2 hidden">Can't be blank</div>
+          <div class="error-message3 hidden">Wrong format, Numbers only</div>
         </div>
         <div class="card-information">
           <div class="card-date">
-            <label for="card_exp">Exp. Date (MM/YY)</label>
+            <label for="card_exp">Exp. Date (MM/YY)</label><br>
             <div class="two-input">
               <div>
                 <input
@@ -75,6 +79,7 @@
                   onkeyup="nextInput(this, 'card_Year')"
                   required
                 />
+                <div class="error-message4 hidden">Can't be blank</div>
               </div>
               <div>
                 <input
@@ -88,11 +93,12 @@
                   id="card_Year"
                   required
                 />
+                <div class="error-message5 hidden">Can't be blank</div>
               </div>
             </div>
           </div>
           <div class="cvv-input">
-            <label for="card_cvv">CVC</label>
+            <label for="card_cvv">CVC</label><br>
             <input
               oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0, this.maxLength)"
               type="number"
@@ -103,6 +109,7 @@
               id="card_Cvv"
               required
             />
+            <div class="error-message6 hidden">Can't be blank</div>
           </div>
         </div>
         <button type="submit" id="submit_bnt">Confirm</button>
@@ -114,9 +121,9 @@
         <button onclick="restForm()">Continue</button>
       </div>
     </div>
-    <!-- <div class="attribution">
-     <p> &copy;.copyright 2023 coded by Bozz</p>.
-    </div> -->
+    <div class="attribution">
+     <p> &copy;.copyright 2023 coded by Aniebiet</p>.
+    </div>
   </div>
   <script src="js/index.js"></script>
 </body>
