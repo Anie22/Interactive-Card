@@ -47,6 +47,8 @@ monthInput.addEventListener("keyup", setcardMonth);
 cvvInput.addEventListener("keyup", setcardCvv);
 
 nameInput.addEventListener("input", () => {
+
+   // prevent digit in the input fill
    nameInput.value = nameInput.value.replace(/[0-9]/g, "");
 
    // check if the form input is empty
@@ -59,6 +61,7 @@ nameInput.addEventListener("input", () => {
     }
 });
 
+// prevent pasting of digit in the input fill
 nameInput.addEventListener("paste", (e) => {
     const pastText = e.clipboardData.getData('text')
     const filterText = pastText.replace(/[0-9]/g, "");
@@ -70,10 +73,11 @@ nameInput.addEventListener("paste", (e) => {
     e.preventDefault();
 });
 
-// check if the form input contains a letter and not a digit and is empty then it displays the error message automatically
+
 numberInput.addEventListener("input", () => {
     const inputVal = numberInput.value
 
+    // checks if the input field is in a wrong format
     if (onlyNumber(inputVal)) {
         numberInput.classList.remove('error')
         message3.classList.add('hidden')
@@ -82,6 +86,7 @@ numberInput.addEventListener("input", () => {
         message3.classList.remove('hidden')
     }
 
+    // checks if the input field is empty
     if (!numberInput.value) {
         numberInput.classList.add('error')
         message2.classList.remove('hidden')
@@ -92,11 +97,11 @@ numberInput.addEventListener("input", () => {
     }
 });
 
-
 monthInput.addEventListener("input", () => {
     const maxLength = monthInput.maxLength;
     const inpValue = monthInput.value;
 
+    // checks if the input field is empty
     if (!monthInput.value) {
         monthInput.classList.add('error')
         message4.classList.remove('hidden')
@@ -105,40 +110,58 @@ monthInput.addEventListener("input", () => {
         message4.classList.add('hidden')
     }
 
-    if (inpValue.length < 2) {
-        const paddedValue = inpValue.concact("0");
-        monthInput.value = paddedValue
-    } else if (inpValue.length === maxLength && inpValue.charAt(0) === "0") {
-        monthInput.value = inpValue.substring(1);
-    }
+    // if (inpValue.length < maxLength) {
+    //     monthInput.value = '0' + inpValue;
+    // } else if (inpValue.length === maxLength) {
+    //     const newValue = inpValue.replace(/0+$/, "");
+    //     monthInput.value = newValue;
+    // }
 });
+
+// monthInput.addEventListener("keydown", (event) => {
+//     if (event.key === 'Backspace' ) {
+//         monthInput.value = monthInput.value.slice(0, -1);
+//     }
+// })
 
 yearInput.addEventListener("input", () => {
     const maxLength = yearInput.maxLength;
     const inpValue = yearInput.value;
 
-    if (inpValue.length < maxLength) {
-        yearInput.value = inpValue + '0';
-    } else if (inpValue.length === maxLength) {
-        const newValue = inpValue.replace(/0+$/, "");
-        yearInput.value = newValue;
-
-        if (e.inputType === 'deleteContentBackward' && newValue !== '') {
-            yearInput.value = '';
-        }
+    // checks if the input field is empty
+    if (!yearInput.value) {
+        yearInput.classList.add('error')
+        message5.classList.remove('hidden')
+    } else if (yearInput.value) {
+        yearInput.classList.remove('error')
+        message5.classList.add('hidden')
     }
+
+    // if (inpValue.length < maxLength) {
+    //     yearInput.value = inpValue + '0';
+    // } else if (inpValue.length === maxLength) {
+    //     const newValue = inpValue.replace(/0+$/, "");
+    //     yearInput.value = newValue;
+    // }
 });
 
-// cvvInput.addEventListener("input", () => {
-//     const CVV = cvvInput.value;
-//     const len = CVV.length;
-
-//     if (len < 3) {
-//         cvvInput.value = "0" + CVV
-//     } else if (len === 3 && inpValue.charAt(0) === "0") {
-//         cvvInput.value = inpValue.substring(1);
+// yearInput.addEventListener("keydown", (event) => {
+//     if (event.key === 'Backspace' ) {
+//         yearInput.value = yearInput.value.slice(0, -1);
 //     }
-// });
+// })
+
+cvvInput.addEventListener("input", () => {
+
+    // checks if the input field is empty
+    if (!cvvInput.value) {
+        cvvInput.classList.add('error')
+        message6.classList.remove('hidden')
+    } else if (cvvInput.value) {
+        cvvInput.classList.remove('error')
+        message6.classList.add('hidden')
+    }
+});
 
 submitBtn.addEventListener("click", handleSubmit);
 
@@ -208,11 +231,10 @@ function onlyNumber(inp){
     return num.test(inp)
 }
 
-
 function handleSubmit(e) {
     e.preventDefault();
 
-     // check if the form input is empty
+    // check if the form input is empty
     if(!nameInput.value){
         nameInput.classList.add('error')
     }else{
@@ -254,9 +276,17 @@ function handleSubmit(e) {
     }
 }
 
-// check if the form input has reach is maxlength before going to the next input
+//check if the form input has reach is maxlength before going to the next input
 function nextInput(currentInput, nextInput){
+    const inputVal = numberInput.value
+
     if(currentInput.value.length >= currentInput.maxLength){
-        document.getElementById(nextInput).focus()
+        // prevent it from leaving the cardNumber input and going to the next input when the format is not correct
+        if (!onlyNumber(inputVal)) {
+            return false
+        }
+        else{
+            document.getElementById(nextInput).focus()
+        }
     }
 }

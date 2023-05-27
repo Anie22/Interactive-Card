@@ -40,6 +40,11 @@ body{
     margin-top: 5px;
 }
 
+.error-message4,
+.error-message5{
+    width: 77px;
+}
+
 .container{
     display: flex;
     align-items: center;
@@ -126,12 +131,8 @@ body{
     width: 100%;
 }
 
-.right-section_card form{
-    display: grid;
-    gap: 1rem;
-    width: 350px;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(4,1fr);
+.right-section_card div{
+    padding: 4px 0;
 }
 
 label{
@@ -182,10 +183,8 @@ input:focus{
     grid-column: 2 span;
 }
 
-.cvv-input{
-    display: flex;
-    flex-direction: column;
-    grid-column: 1 span;
+.cvv-input>input{
+    margin-top: 7px;
 }
 
 .card-information{
@@ -213,7 +212,7 @@ input:focus{
 }
 
 form button{
-    grid-column: 2 span;
+    width: 100%;
     font-size: 18px;
     height: 50px;
     color: var(--White);
@@ -285,6 +284,10 @@ form button{
         right: 12%;
     }
 
+    .right-section_card{
+        margin-left: 4em;
+    }
+
     .attribution {
         transform: translate(190%, 470%);
     }
@@ -335,18 +338,14 @@ form button{
         margin-left: 12px;
     }
 
-    /* .date{
-        margin-left: 6.2rem;
-    } */
-
     .attribution {
-        transform: translate(-0%, 1550%);
+        transform: translate(-0%, 1360%);
     }
 }
 
 @media screen and (max-width: 425px) {
     .first-card, .first-card img, .second-card, .second-card img{
-      width: 303px;
+      width: 307px;
     }
 
     .left-section_card{
@@ -373,19 +372,19 @@ form button{
 
     .atm-number{
         bottom: 3.4rem;
-        font-size: 1.5rem;
+        font-size: 22px;
     }
 
-    .attribution{
+    /* .attribution{
         transform: translateY(1210%);
-    }
+    } */
 
     .thank{
         padding: 0px 15px;
     }
 
     .attribution {
-        transform: translate(-0%, 1500%);
+        transform: translate(-0%, 1320%);
     }
 }
 
@@ -421,17 +420,17 @@ form button{
         font-size: 20px;
     }
 
-    .attribution{
+    /* .attribution{
         transform: translateY(1210%);
-    }
+    } */
 
     .thank{
         padding: 0px 15px;
     }
 
-    .attribution {
-        transform: translate(-0%, 1530%);
-    }
+    /* .attribution {
+        transform: translate(-0%, 1320%);
+    } */
 }
 
 @media screen and (max-width: 320px) {
@@ -470,7 +469,7 @@ form button{
         font-size: 20px;
     }
 
-    .attribution {
-        transform: translate(-0%, 1500%);
-    }
+    /* .attribution {
+        transform: translate(-0%, 1320%);
+    } */
 }
