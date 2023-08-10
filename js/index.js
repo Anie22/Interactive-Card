@@ -4,6 +4,7 @@ const message3 = document.querySelector('.error-message3')
 const message4 = document.querySelector('.error-message4')
 const message5 = document.querySelector('.error-message5')
 const message6 = document.querySelector('.error-message6')
+const resetButton = document.getElementById('resetButton');
 
 const card_name = 'Jane Appleseed'
 document.querySelector('.name').innerText = card_name
@@ -98,9 +99,6 @@ numberInput.addEventListener("input", () => {
 });
 
 monthInput.addEventListener("input", () => {
-    const maxLength = monthInput.maxLength;
-    const inpValue = monthInput.value;
-
     // checks if the input field is empty
     if (!monthInput.value) {
         monthInput.classList.add('error')
@@ -109,13 +107,12 @@ monthInput.addEventListener("input", () => {
         monthInput.classList.remove('error')
         message4.classList.add('hidden')
     }
-
-    // if (inpValue.length < maxLength) {
-    //     monthInput.value = '0' + inpValue;
-    // } else if (inpValue.length === maxLength) {
-    //     const newValue = inpValue.replace(/0+$/, "");
-    //     monthInput.value = newValue;
-    // }
+});
+monthInput.addEventListener('keydown', (event) => {
+    // Prevent up and down arrow key events
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      event.preventDefault();
+    }
 });
 
 // monthInput.addEventListener("keydown", (event) => {
@@ -125,9 +122,6 @@ monthInput.addEventListener("input", () => {
 // })
 
 yearInput.addEventListener("input", () => {
-    const maxLength = yearInput.maxLength;
-    const inpValue = yearInput.value;
-
     // checks if the input field is empty
     if (!yearInput.value) {
         yearInput.classList.add('error')
@@ -136,23 +130,15 @@ yearInput.addEventListener("input", () => {
         yearInput.classList.remove('error')
         message5.classList.add('hidden')
     }
-
-    // if (inpValue.length < maxLength) {
-    //     yearInput.value = inpValue + '0';
-    // } else if (inpValue.length === maxLength) {
-    //     const newValue = inpValue.replace(/0+$/, "");
-    //     yearInput.value = newValue;
-    // }
+});
+yearInput.addEventListener('keydown', (event) => {
+    // Prevent up and down arrow key events
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      event.preventDefault();
+    }
 });
 
-// yearInput.addEventListener("keydown", (event) => {
-//     if (event.key === 'Backspace' ) {
-//         yearInput.value = yearInput.value.slice(0, -1);
-//     }
-// })
-
 cvvInput.addEventListener("input", () => {
-
     // checks if the input field is empty
     if (!cvvInput.value) {
         cvvInput.classList.add('error')
@@ -160,6 +146,12 @@ cvvInput.addEventListener("input", () => {
     } else if (cvvInput.value) {
         cvvInput.classList.remove('error')
         message6.classList.add('hidden')
+    }
+});
+cvvInput.addEventListener('keydown', (event) => {
+    // Prevent up and down arrow key events
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      event.preventDefault();
     }
 });
 
@@ -271,10 +263,15 @@ function handleSubmit(e) {
 
     // check if the form input is complete befor submitting
     if(nameInput.value && numberInput.value && yearInput.value && monthInput.value && cvvInput.value){
-        completed.classList.remove('hidden')
         Form.classList.add('hidden')
+        completed.classList.remove('hidden')
     }
 }
+
+resetButton.addEventListener('click', function() {
+    // Reload the page without wasting time
+    window.location.reload();
+});
 
 //check if the form input has reach is maxlength before going to the next input
 function nextInput(currentInput, nextInput){

@@ -148,8 +148,8 @@ input{
     border-radius: 6px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-outer-spin-button{
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{
     -webkit-appearance: none;
     margin: 0;
 }
@@ -272,7 +272,7 @@ form button{
 
     .atm-number{
         bottom: 4rem;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .date{
@@ -328,6 +328,7 @@ form button{
 
     .right-section_card{
         margin-top: 8rem;
+        margin-left: 0px;
     }
 
     .right-section_card form{
@@ -339,7 +340,7 @@ form button{
     }
 
     .attribution {
-        transform: translate(-0%, 1360%);
+        transform: translate(-0%, 1340%);
     }
 }
 
@@ -349,7 +350,7 @@ form button{
     }
 
     .left-section_card{
-        min-height: 43vh;
+        min-height: 54vh;
     }
 
     .first-card{
@@ -375,16 +376,12 @@ form button{
         font-size: 22px;
     }
 
-    /* .attribution{
-        transform: translateY(1210%);
-    } */
-
     .thank{
         padding: 0px 15px;
     }
 
     .attribution {
-        transform: translate(-0%, 1320%);
+        transform: translate(-0%, 1227%);
     }
 }
 
@@ -420,17 +417,13 @@ form button{
         font-size: 20px;
     }
 
-    /* .attribution{
-        transform: translateY(1210%);
-    } */
-
     .thank{
         padding: 0px 15px;
     }
 
-    /* .attribution {
-        transform: translate(-0%, 1320%);
-    } */
+    .attribution {
+        transform: translate(-0%, 1227%);
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -439,7 +432,7 @@ form button{
     }
 
     .left-section_card{
-        height: 30vh;
+        height: 54vh;
     }
 
     .first-card{
@@ -469,7 +462,7 @@ form button{
         font-size: 20px;
     }
 
-    /* .attribution {
-        transform: translate(-0%, 1320%);
-    } */
+    .attribution {
+        transform: translate(-0%, 879%);
+    }
 }
