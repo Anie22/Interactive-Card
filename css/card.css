@@ -304,7 +304,7 @@ form button{
 
     .left-section_card{
         width: 100%;
-        min-height: 52vh;
+        min-height: 67vh;
         background-image: url(../img/bg-main-mobile.png);
     }
 
@@ -350,7 +350,7 @@ form button{
     }
 
     .left-section_card{
-        min-height: 54vh;
+        min-height: 67vh;
     }
 
     .first-card{
@@ -381,7 +381,7 @@ form button{
     }
 
     .attribution {
-        transform: translate(-0%, 1227%);
+        transform: translate(-0%, 1231%);
     }
 }
 
@@ -422,7 +422,7 @@ form button{
     }
 
     .attribution {
-        transform: translate(-0%, 1227%);
+        transform: translate(-0%, 1230%);
     }
 }
 
@@ -463,6 +463,6 @@ form button{
     }
 
     .attribution {
-        transform: translate(-0%, 879%);
+        transform: translate(-0%, 880%);
     }
 }
