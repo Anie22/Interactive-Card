@@ -326,7 +326,7 @@ form button{
     }
 
     .right-section_card{
-        margin: 5rem 0 1.5em 0;
+        margin: -13em 0 1.5em 0;
     }
 
     .right-section_card form{
@@ -339,7 +339,7 @@ form button{
 
     .attribution{
         margin: 0;
-        padding: 0;
+        padding: 10px 0 15px 0;
         text-align: center;
     }
 }
