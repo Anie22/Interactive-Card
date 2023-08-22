@@ -316,7 +316,7 @@ form button{
     }
 
     .second-card{
-        transform: translateY(-61px);
+        transform: translateY(82px);
     }
 
     .first-card{
@@ -324,7 +324,7 @@ form button{
     }
 
     .right-section_card{
-        margin: -13em 0 1.5em 0;
+        margin: 5em 0 1.5em 0;
     }
 
     .right-section_card form{
@@ -415,7 +415,7 @@ form button{
 
     .first-card{
         margin-left: 115px;
-        top: -132px;
+        top: 7px;
     }
 
     .second-card{
